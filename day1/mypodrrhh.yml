@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rrhh
+  labels:
+    dept: rrhh
+spec:
+  containers:
+  - name: debian
+    image: debian
+    command: ["sleep","3600"]

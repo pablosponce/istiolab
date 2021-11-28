@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-rgpd
+spec:
+  podSelector:
+    matchLabels:
+     dept: "rrhh"
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          rgpd: "true"
+    ports:
+    - protocol: TCP
+      port: 80

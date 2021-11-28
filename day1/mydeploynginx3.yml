@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxdeploy
+spec:
+  replicas: 10
+  strategy:
+   type: Recreate
+  selector:
+    matchLabels:
+      app: nginx-dep
+  template:
+    metadata:
+      labels:
+        app: nginx-dep
+    spec:
+      containers:
+      - image: nginx:1.17.5-alpine
+        name: nginx-dep
+        ports:
+        - containerPort: 80
